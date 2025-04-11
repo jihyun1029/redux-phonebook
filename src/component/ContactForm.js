@@ -1,18 +1,21 @@
 import React, {useState} from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import {useDispatch} from "react-redux";
 
 const ContactForm = () => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState(0);
-    const getName = (event) => {
-        // console.log(event.target.value);
-        setName(event.target.value);
-    }
+    const dispatch = useDispatch();
+
+    const addContact = (event) => {
+        event.preventDefault();
+        dispatch({type: "ADD_CONTACT", payload:{name, phoneNumber}})
+    };
 
     return (
         <div>
-            <Form>
+            <Form onSubmit={addContact}>
                 <Form.Group className="mb-3" controlId="formName">
                     <Form.Label>이름</Form.Label>
                     <Form.Control
