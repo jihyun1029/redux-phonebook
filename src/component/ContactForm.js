@@ -19,7 +19,7 @@ const ContactForm = () => {
                 <Form.Group className="mb-3" controlId="formName">
                     <Form.Label>이름</Form.Label>
                     <Form.Control
-                        type="email"
+                        type="text"
                         placeholder="이름을 입력해주세요"
                         // onChange={getName}
                         onChange={(event) => setName(event.target.value)}
